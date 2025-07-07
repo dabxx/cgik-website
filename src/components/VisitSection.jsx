@@ -3,14 +3,15 @@ import { MapPin, Phone, Mail } from 'lucide-react';
 
 const VisitSection = () => {
   const serviceTimes = [
-    { service: 'English Service', time: '9:00 AM' },
-    { service: 'Malyalam Service', time: '10:00 AM' },
-    { service: 'Fasting Prayer', time: 'Friday 11:00 AM' }
+    { service: 'English Service', time: 'Sunday 9:00 AM' },
+    { service: 'Malyalam Service', time: 'Sunday 10:00 AM' },
+    { service: 'Sunday School', time: 'Sunday 9:00 AM' },
+    { service: 'Youth Prayer Cell', time: 'Friday 7:00 PM' },
   ];
 
   const contactInfo = [
     { icon: MapPin, text: 'Koramangala, Bangalore, Karnataka' },
-    { icon: Phone, text: '+91 9876543210' },
+    { icon: Phone, text: '+91 94470 93119' },
     { icon: Mail, text: 'info@cogkoramangala.org' }
   ];
 
