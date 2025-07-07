@@ -1,7 +1,7 @@
 // components/Navigation.js
-import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { getNavRoutes } from '../config/Routes';
+import React, { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { getNavRoutes } from "../config/Routes";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -23,7 +23,7 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex-shrink-0 w-52">
             <Link to="/home" className="text-xl font-bold text-gray-800">
-              <img src="/images/Church_logo.png" alt="" />
+              <img src="/images/church-logo.png" alt="" />
             </Link>
           </div>
 
@@ -36,8 +36,8 @@ const Navbar = () => {
                   to={route.path}
                   className={`px-3 py-2 rounded-md text-base font-medium transition-colors ${
                     isActiveRoute(route.path)
-                      ? ' text-white underline'
-                      : 'text-white hover:text-orange-600'
+                      ? " text-white underline"
+                      : "text-white hover:text-orange-600"
                   }`}
                 >
                   {route.name}
@@ -89,8 +89,8 @@ const Navbar = () => {
                   onClick={() => setIsMenuOpen(false)}
                   className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${
                     isActiveRoute(route.path)
-                      ? ' text-white'
-                      : 'text-gray-700 hover:text-blue-600'
+                      ? " text-white"
+                      : "text-gray-700 hover:text-blue-600"
                   }`}
                 >
                   {route.name}

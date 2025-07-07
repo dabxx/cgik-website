@@ -37,7 +37,7 @@ const Footer = () => {
           <div>
             <div className="flex items-center space-x-3 mb-4 w-52">
               <Link to="/home" className="">
-                <img src="/images/Church_logo.png" alt="logo" />
+                <img src="/images/church-logo.png" alt="logo" />
               </Link>
             </div>
             <p className="text-slate-400 text-sm">
