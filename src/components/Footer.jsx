@@ -1,5 +1,5 @@
 import React from "react";
-import { Facebook, Twitter, Instagram, Youtube } from "lucide-react";
+import { Facebook, Twitter, Instagram, Youtube, MapPin, Phone, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
@@ -76,12 +76,25 @@ const Footer = () => {
           {/* Contact & Social */}
           <div>
             <h5 className="font-bold mb-4">Get In Touch</h5>
-            <div className="space-y-2 text-sm text-slate-400 mb-4">
-              <p>📍 Koramangala, Bangalore</p>
-              <p>📞 +91 94470 93119</p>
-              <p>✉️ info@cogkoramangala.org</p>
-            </div>
+            <div className="space-y-3 text-sm text-slate-400 mb-4">
+              <div className="flex items-start gap-3">
+                <MapPin className="w-4 h-4 mt-0.5 text-slate-500 flex-shrink-0" />
+                <p>
+                  # 418/8, 80 Feet Road, 6th Block, (Near BMTC Bus Depot) <br />{" "}
+                  Koramangala, Bangalore, Karnataka, India, <br /> Pin 560 095.
+                </p>
+              </div>
 
+              <div className="flex items-center gap-3">
+                <Phone className="w-4 h-4 text-slate-500 flex-shrink-0" />
+                <p>+91 94470 93119</p>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <Mail className="w-4 h-4 text-slate-500 flex-shrink-0" />
+                <p>info@cogkoramangala.org</p>
+              </div>
+            </div>
             <div className="flex space-x-3">
               {socialLinks.map((social, index) => (
                 <a

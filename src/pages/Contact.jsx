@@ -252,7 +252,7 @@ export default function ContactUs() {
                   <span className="text-gray-600">7:00 PM - 8:30 PM</span>
                 </div>
                */}
-                <div className="flex justify-between items-center py-2">
+                <div className="flex justify-between items-center py-2 border-b border-gray-100">
                   <span className="font-medium text-gray-700">
                     Sunday School
                   </span>
