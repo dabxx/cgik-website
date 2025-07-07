@@ -1,32 +1,40 @@
-import React, { useState } from 'react';
-import { MapPin, Phone, Mail, Clock, Send, User, MessageCircle } from 'lucide-react';
+import React, { useState } from "react";
+import {
+  MapPin,
+  Phone,
+  Mail,
+  Clock,
+  Send,
+  User,
+  MessageCircle,
+} from "lucide-react";
 
 export default function ContactUs() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    subject: '',
-    message: ''
+    name: "",
+    email: "",
+    phone: "",
+    subject: "",
+    message: "",
   });
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle form submission here
-    alert('Thank you for your message! We will get back to you soon.');
+    alert("Thank you for your message! We will get back to you soon.");
     setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      subject: '',
-      message: ''
+      name: "",
+      email: "",
+      phone: "",
+      subject: "",
+      message: "",
     });
   };
 
@@ -35,11 +43,9 @@ export default function ContactUs() {
       {/* Header Section */}
       <div className="bg-gradient-to-r from-blue-900 to-blue-800 text-white">
         <div className="max-w-6xl mx-auto px-6 py-16 text-center">
-          <h1 className="text-4xl md:text-5xl font-serif mb-4">
-            Contact Us
-          </h1>
+          <h1 className="text-4xl md:text-5xl font-serif mb-4">Contact Us</h1>
           <p className="text-xl text-blue-200 max-w-2xl mx-auto">
-            We'd love to hear from you. Get in touch with us for any questions, 
+            We'd love to hear from you. Get in touch with us for any questions,
             prayer requests, or to learn more about our church community.
           </p>
         </div>
@@ -51,13 +57,18 @@ export default function ContactUs() {
           <div className="bg-white rounded-xl shadow-lg p-8">
             <div className="flex items-center mb-6">
               <MessageCircle className="w-6 h-6 text-blue-600 mr-3" />
-              <h2 className="text-2xl font-serif text-gray-800">Send us a Message</h2>
+              <h2 className="text-2xl font-serif text-gray-800">
+                Send us a Message
+              </h2>
             </div>
-            
+
             <div className="space-y-6">
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label
+                    htmlFor="name"
+                    className="block text-sm font-medium text-gray-700 mb-2"
+                  >
                     Full Name *
                   </label>
                   <div className="relative">
@@ -74,9 +85,12 @@ export default function ContactUs() {
                     />
                   </div>
                 </div>
-                
+
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium text-gray-700 mb-2"
+                  >
                     Email Address *
                   </label>
                   <div className="relative">
@@ -97,7 +111,10 @@ export default function ContactUs() {
 
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label
+                    htmlFor="phone"
+                    className="block text-sm font-medium text-gray-700 mb-2"
+                  >
                     Phone Number
                   </label>
                   <div className="relative">
@@ -113,9 +130,12 @@ export default function ContactUs() {
                     />
                   </div>
                 </div>
-                
+
                 <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label
+                    htmlFor="subject"
+                    className="block text-sm font-medium text-gray-700 mb-2"
+                  >
                     Subject *
                   </label>
                   <select
@@ -139,7 +159,10 @@ export default function ContactUs() {
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                <label
+                  htmlFor="message"
+                  className="block text-sm font-medium text-gray-700 mb-2"
+                >
                   Message *
                 </label>
                 <textarea
@@ -172,27 +195,30 @@ export default function ContactUs() {
                 <MapPin className="w-6 h-6 text-blue-600 mr-3" />
                 <h2 className="text-2xl font-serif text-gray-800">Visit Us</h2>
               </div>
-              
+
               <div className="space-y-4">
                 <div>
-                  <h3 className="font-semibold text-gray-800 mb-2">Church of God, Koramangala</h3>
+                  <h3 className="font-semibold text-gray-800 mb-2">
+                    Church of God, Koramangala
+                  </h3>
                   <p className="text-gray-600">
-                    6th Block, Koramangala<br />
-                    80 Feet Road<br />
-                    Bangalore, Karnataka 560095<br />
-                    India
+                    # 418/8, 80 Feet Road, 6th Block, (Near BMTC Bus Depot){" "}
+                    <br /> Koramangala, Bangalore, Karnataka, India, <br /> Pin
+                    560 095.
                   </p>
                 </div>
-                
+
                 <div className="pt-4 border-t border-gray-200">
                   <div className="flex items-center space-x-4">
                     <div className="flex items-center">
                       <Phone className="w-4 h-4 text-blue-600 mr-2" />
-                      <span className="text-gray-700">+91 98765 43210</span>
+                      <span className="text-gray-700">+91 94470 93119</span>
                     </div>
                     <div className="flex items-center">
                       <Mail className="w-4 h-4 text-blue-600 mr-2" />
-                      <span className="text-gray-700">info@cogkoramangala.org</span>
+                      <span className="text-gray-700">
+                        info@cogkoramangala.org
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -203,42 +229,60 @@ export default function ContactUs() {
             <div className="bg-white rounded-xl shadow-lg p-8">
               <div className="flex items-center mb-6">
                 <Clock className="w-6 h-6 text-blue-600 mr-3" />
-                <h2 className="text-2xl font-serif text-gray-800">Service Times</h2>
+                <h2 className="text-2xl font-serif text-gray-800">
+                  Service Times
+                </h2>
               </div>
-              
+
               <div className="space-y-4">
                 <div className="flex justify-between items-center py-2 border-b border-gray-100">
-                  <span className="font-medium text-gray-700">Sunday Morning Service</span>
-                  <span className="text-gray-600">9:00 AM - 11:00 AM</span>
+                  <span className="font-medium text-gray-700">
+                    Sunday English Service
+                  </span>
+                  <span className="text-gray-600">8:30 AM - 10:00 AM</span>
                 </div>
                 <div className="flex justify-between items-center py-2 border-b border-gray-100">
-                  <span className="font-medium text-gray-700">Sunday Evening Service</span>
-                  <span className="text-gray-600">6:00 PM - 8:00 PM</span>
+                  <span className="font-medium text-gray-700">
+                    Sunday Malyalam Service
+                  </span>
+                  <span className="text-gray-600">10:00 AM - 12:30 PM</span>
                 </div>
-                <div className="flex justify-between items-center py-2 border-b border-gray-100">
+                {/* <div className="flex justify-between items-center py-2 border-b border-gray-100">
                   <span className="font-medium text-gray-700">Wednesday Prayer Meeting</span>
                   <span className="text-gray-600">7:00 PM - 8:30 PM</span>
                 </div>
-                <div className="flex justify-between items-center py-2 border-b border-gray-100">
-                  <span className="font-medium text-gray-700">Friday Youth Service</span>
-                  <span className="text-gray-600">7:00 PM - 9:00 PM</span>
-                </div>
+               */}
                 <div className="flex justify-between items-center py-2">
-                  <span className="font-medium text-gray-700">Saturday Bible Study</span>
-                  <span className="text-gray-600">7:00 PM - 8:30 PM</span>
+                  <span className="font-medium text-gray-700">
+                    Sunday School
+                  </span>
+                  <span className="text-gray-600">9:00 AM - 10:00 AM</span>
+                </div>
+                <div className="flex justify-between items-center py-2 border-b border-gray-100">
+                  <span className="font-medium text-gray-700">
+                    Friday Youth Prayer Cell
+                  </span>
+                  <span className="text-gray-600">7:00 PM - 8:00 PM</span>
                 </div>
               </div>
             </div>
 
             {/* Map Placeholder */}
             <div className="bg-white rounded-xl shadow-lg p-8">
-              <h3 className="text-xl font-serif text-gray-800 mb-4">Find Us on Map</h3>
-              <div className="w-full h-64 bg-gray-200 rounded-lg flex items-center justify-center">
-                <div className="text-center">
-                  <MapPin className="w-12 h-12 text-gray-400 mx-auto mb-2" />
-                  <p className="text-gray-500">Interactive Map</p>
-                  <p className="text-sm text-gray-400">6th Block, Koramangala, Bangalore</p>
-                </div>
+              <h3 className="text-xl font-serif text-gray-800 mb-4">
+                Find Us on Map
+              </h3>
+
+              <div className="w-full h-64 rounded-lg overflow-hidden">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d408.7285071849356!2d77.62574544020543!3d12.939646451527214!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1443ef5da8e7%3A0x52c005d3251fde1!2sChurch%20of%20God%20Koramangala!5e0!3m2!1sen!2sin!4v1751909054127!5m2!1sen!2sin"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen=""
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                ></iframe>
               </div>
             </div>
           </div>
@@ -250,8 +294,9 @@ export default function ContactUs() {
             New to Our Church?
           </h2>
           <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-            We welcome visitors and new members with open arms. Join us for worship, 
-            fellowship, and spiritual growth in a loving Christian community.
+            We welcome visitors and new members with open arms. Join us for
+            worship, fellowship, and spiritual growth in a loving Christian
+            community.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <span className="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">

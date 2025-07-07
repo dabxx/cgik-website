@@ -1,35 +1,16 @@
 import React, { useEffect, useState } from "react";
 
 const Services = () => {
-  const [scrollY, setScrollY] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
       <div
         className="relative bg-cover bg-center bg-no-repeat py-24 px-4 overflow-hidden"
-        style={{
-          height: "40vh",
-          backgroundImage:
-            "url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80')",
-          backgroundAttachment: "fixed",
-          transform: `translateY(${scrollY * 0.5}px)`,
-        }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
         <div
           className="relative z-10 max-w-4xl mx-auto text-center text-white flex flex-col justify-center h-full"
-          style={{
-            transform: `translateY(${scrollY * 0.3}px)`,
-          }}
+         
         >
           <h1 className="text-4xl md:text-5xl font-bold mb-6 tracking-wide">
             SERVICES & SERMONS
@@ -84,7 +65,7 @@ const Services = () => {
                   <h4 className="font-semibold text-gray-700 mb-1">
                     SUNDAY SCHOOL
                   </h4>
-                  <p className="text-gray-600">8:30 AM - 9:30 AM</p>
+                  <p className="text-gray-600">9:00 AM - 10:00 AM</p>
                 </div>
 
                 <div className="text-center">
