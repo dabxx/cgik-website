@@ -80,8 +80,8 @@ const Footer = () => {
               <div className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 mt-0.5 text-slate-500 flex-shrink-0" />
                 <p>
-                  # 418/8, 80 Feet Road, 6th Block, (Near BMTC Bus Depot) <br />{" "}
-                  Koramangala, Bangalore, Karnataka, India, <br /> Pin 560 095.
+                  # 418/8, 80 Feet Road, 6th Block, <br /> (Near BMTC Bus Depot) <br />{" "}
+                  Koramangala, Bangalore, India, <br /> Pin 560 095.
                 </p>
               </div>
 
@@ -117,7 +117,7 @@ const Footer = () => {
               href="https://db-media.vercel.app/"
               className="text-cyan-400 underline hover:text-white transition-colors ml-1"
             >
-              db media Bangalore
+              db media
             </a>
             <a href="#" className="hover:text-white transition-colors ml-1">
               | Privacy Policy

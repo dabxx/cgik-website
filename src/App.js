@@ -1,10 +1,16 @@
 // App.js
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import Layout from './components/Layout';
-import { routes } from './config/Routes';
-import NotFound from './pages/NotFound';
-import Loading from './components/Loading';
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
+import Layout from "./components/Layout";
+import { routes } from "./config/Routes";
+import NotFound from "./pages/NotFound";
+import Loading from "./components/Loading";
+import { ChakraProvider } from "@chakra-ui/react";
 
 // Lazy loading wrapper component
 const LazyRoute = ({ component: Component, ...props }) => {
@@ -34,10 +40,10 @@ function App() {
               }
             />
           ))}
-          
+
           {/* Redirect root to home */}
           <Route path="/" element={<Navigate to="/home" replace />} />
-          
+
           {/* 404 Not Found */}
           <Route path="*" element={<NotFound />} />
         </Routes>

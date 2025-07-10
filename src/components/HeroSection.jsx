@@ -5,8 +5,8 @@ const HeroSection = () => {
   // Array of background images - you can replace these with your actual church images
   const backgroundImages = [
     "/images/HeroBanner/home1.jpeg",
-    "/images/HeroBanner/home2.jpg",
-    "/images/HeroBanner/home3.jpg",
+    // "/images/HeroBanner/home2.jpg",
+    // "/images/HeroBanner/home3.jpg",
     "/images/HeroBanner/BLR1.jpg",
     "/images/HeroBanner/BLR2.jpg",
     "/images/HeroBanner/BLR3.jpg",
@@ -122,15 +122,6 @@ const HeroSection = () => {
             aria-label={`Go to slide ${index + 1}`}
           />
         ))}
-      </div>
-
-      {/* Auto-play indicator */}
-      <div className="absolute top-4 right-4 z-20">
-        <div
-          className={`w-2 h-2 rounded-full transition-colors duration-300 ${
-            isAutoPlaying ? "bg-green-400" : "bg-gray-400"
-          }`}
-        />
       </div>
     </section>
   );

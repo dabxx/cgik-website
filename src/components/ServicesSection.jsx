@@ -5,7 +5,7 @@ const ServicesSection = () => {
     {
       icon: '🙏',
       title: 'Sunday Worship',
-      description: 'Join us every Sunday at 10:00 AM for worship and fellowship.'
+      description: 'Join us every Sunday for worship and fellowship.'
     },
     {
       icon: '📖',
