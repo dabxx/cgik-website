@@ -16,7 +16,7 @@ const History = () => {
       </div>
 
       {/* Main Content */}
-      <div className="max-w-4xl mx-auto px-6 py-12">
+      <div className=" mx-auto px-6 py-12">
         {/* First Section - Origins */}
         <div className="bg-white rounded-lg shadow-md p-8 mb-8">
           <p className="text-gray-700 leading-relaxed mb-6">
@@ -70,11 +70,11 @@ const History = () => {
         <div className="bg-blue-50 rounded-lg shadow-md overflow-hidden">
           <div className="md:flex">
             {/* Image Section */}
-            <div className="md:w-1/2">
+            <div className="md:w-1/2 p-5">
               <img 
-                src="/api/placeholder/400/600" 
+                src="/images/history.jpg" 
                 alt="Church of God Koramangala Building" 
-                className="w-full h-64 md:h-full object-cover"
+                className="w-full h-64 md:h-full object-contain"
               />
             </div>
             

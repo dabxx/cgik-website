@@ -3,18 +3,23 @@ import { BookOpen, Users, Heart, Send } from "lucide-react";
 
 const Ministries = () => {
   const galleryImages = [
-    { src: "/api/placeholder/200/150", alt: "Community gathering" },
-    { src: "/api/placeholder/200/150", alt: "Youth activities" },
-    { src: "/api/placeholder/200/150", alt: "Mission work" },
-    { src: "/api/placeholder/200/150", alt: "Group photo" },
-    { src: "/api/placeholder/200/150", alt: "Church service" },
-    { src: "/api/placeholder/200/150", alt: "Community service" },
-    { src: "/api/placeholder/200/150", alt: "Fellowship" },
-    { src: "/api/placeholder/200/150", alt: "Bible study" },
-    { src: "/api/placeholder/200/150", alt: "Outreach program" },
-    { src: "/api/placeholder/200/150", alt: "Prayer meeting" },
-    { src: "/api/placeholder/200/150", alt: "Ministry team" },
-    { src: "/api/placeholder/200/150", alt: "Church activities" },
+    { src: "/images/mission/church-1.jpg", alt: "Community gathering" },
+    { src: "/images/mission/church-2.jpg", alt: "Youth activities" },
+    { src: "/images/mission/church-3.jpg", alt: "Mission work" },
+    { src: "/images/mission/church-4.jpg", alt: "Group photo" },
+    { src: "/images/mission/ype-1.jpg", alt: "Community gathering" },
+    { src: "/images/mission/ype-2.jpg", alt: "Youth activities" },
+    { src: "/images/mission/ype-3.jpg", alt: "Mission work" },
+    { src: "/images/mission/ype-4.jpg", alt: "Group photo" },
+    { src: "/images/mission/ss-1.jpg", alt: "Community gathering" },
+    { src: "/images/mission/ss-2.jpg", alt: "Youth activities" },
+    { src: "/images/mission/ss-3.jpg", alt: "Mission work" },
+    { src: "/images/mission/ss-4.jpg", alt: "Group photo" },
+    { src: "/images/mission/charity-1.jpg", alt: "Community gathering" },
+    { src: "/images/mission/charity-2.jpg", alt: "Youth activities" },
+    { src: "/images/mission/charity-3.jpg", alt: "Mission work" },
+    { src: "/images/mission/charity-4.jpg", alt: "Group photo" },
+    
   ];
 
   return (
