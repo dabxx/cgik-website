@@ -4,18 +4,12 @@ const Services = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <div
-        className="relative bg-cover bg-center bg-no-repeat py-24 px-4 overflow-hidden"
-      >
-        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-        <div
-          className="relative z-10 max-w-4xl mx-auto text-center text-white flex flex-col justify-center h-full"
-         
-        >
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 tracking-wide">
+      <div className="bg-white shadow-sm text-white">
+        <div className="max-w-6xl mx-auto px-6 py-12 text-center">
+          <h1 className="text-4xl md:text-5xl font-serif text-blue-900 mb-4">
             SERVICES & SERMONS
           </h1>
-          <p className="text-lg md:text-xl leading-relaxed max-w-3xl mx-auto">
+          <p className="text-lg text-blue-700 font-medium max-w-2xl mx-auto">
             We believe that a church is meant to be a spiritual family that
             builds up and encourages one another to become more like Christ. We
             invite you to become a part of our fellowship at this garden city,
@@ -29,7 +23,7 @@ const Services = () => {
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
           <div className="text-center mb-12">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-blue-900 mb-4">
               JOIN US
             </h2>
             <h3 className="text-xl md:text-2xl text-gray-600 mb-2">

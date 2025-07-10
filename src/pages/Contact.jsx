@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   MapPin,
   Phone,
@@ -7,9 +7,86 @@ import {
   Send,
   User,
   MessageCircle,
+  CheckCircle,
+  XCircle,
+  X,
 } from "lucide-react";
 
+// Custom Toast Component
+const Toast = ({ message, type = "success", isVisible, onClose }) => {
+  useEffect(() => {
+    if (isVisible) {
+      const timer = setTimeout(() => {
+        onClose();
+      }, 5000);
+      return () => clearTimeout(timer);
+    }
+  }, [isVisible, onClose]);
+
+  if (!isVisible) return null;
+
+  const baseClasses = "fixed bottom-4 right-4 z-50 max-w-sm w-full bg-white rounded-lg shadow-lg border-l-4 p-4 transform transition-all duration-300 ease-in-out";
+  const typeClasses = {
+    success: "border-green-500",
+    error: "border-red-500",
+  };
+
+  return (
+    <div className={`${baseClasses} ${typeClasses[type]} animate-slide-in`}>
+      <div className="flex items-start">
+        <div className="flex-shrink-0">
+          {type === "success" ? (
+            <CheckCircle className="w-5 h-5 text-green-500" />
+          ) : (
+            <XCircle className="w-5 h-5 text-red-500" />
+          )}
+        </div>
+        <div className="ml-3 flex-1">
+          <div className="text-sm font-medium text-gray-900">
+            {message.title}
+          </div>
+          {message.description && (
+            <div className="text-sm text-gray-700 mt-1">
+              {message.description}
+            </div>
+          )}
+        </div>
+        <button
+          onClick={onClose}
+          className="flex-shrink-0 ml-4 text-gray-400 hover:text-gray-600 transition-colors"
+        >
+          <X className="w-4 h-4" />
+        </button>
+      </div>
+    </div>
+  );
+};
+
+// Custom Toast Hook
+const useCustomToast = () => {
+  const [toast, setToast] = useState({
+    isVisible: false,
+    message: { title: "", description: "" },
+    type: "success",
+  });
+
+  const showToast = ({ title, description, status = "success" }) => {
+    setToast({
+      isVisible: true,
+      message: { title, description },
+      type: status === "error" ? "error" : "success",
+    });
+  };
+
+  const hideToast = () => {
+    setToast(prev => ({ ...prev, isVisible: false }));
+  };
+
+  return { toast, showToast, hideToast };
+};
+
 export default function ContactUs() {
+  const { toast, showToast, hideToast } = useCustomToast();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -17,34 +94,109 @@ export default function ContactUs() {
     subject: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
+    const { name, value } = e.target;
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value,
+      [name]: value,
     });
+
+    // Clear error for this field when user starts typing
+    if (errors[name]) {
+      setErrors({
+        ...errors,
+        [name]: false,
+      });
+    }
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle form submission here
-    alert("Thank you for your message! We will get back to you soon.");
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      subject: "",
-      message: "",
-    });
+  // Method 1: Using EmailJS (You'll need to configure your EmailJS account)
+  const handleSubmitEmailJS = async () => {
+    // Validate required fields
+    if (
+      !formData.name ||
+      !formData.phone ||
+      !formData.subject ||
+      !formData.message
+    ) {
+      showToast({
+        title: "Required fields missing",
+        description: "Please fill in all required fields.",
+        status: "error",
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      console.log("Attempting to send email with data:", formData);
+
+      const emailjs = (await import("@emailjs/browser")).default;
+
+      // Initialize EmailJS with your public key
+      emailjs.init("tIOSH2nWd1iz6JS6w");
+
+      const result = await emailjs.send(
+        "service_dwhwp76", // Your EmailJS service ID
+        "template_hk9p89f", // Replace with your actual template ID
+        {
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          subject: formData.subject,
+          message: formData.message,
+          to_email: "dany.db.dany@gmail.com",
+        }
+      );
+
+      console.log("Email sent successfully:", result);
+
+      showToast({
+        title: "Message sent successfully!",
+        description: "Thank you for your message! We will get back to you soon.",
+        status: "success",
+      });
+
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        subject: "",
+        message: "",
+      });
+      setErrors({});
+    } catch (error) {
+      console.error("Email sending failed:", error);
+
+      showToast({
+        title: "Error sending message",
+        description: "Sorry, there was an error sending your message. Please try again.",
+        status: "error",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-100">
+      {/* Custom Toast */}
+      <Toast
+        message={toast.message}
+        type={toast.type}
+        isVisible={toast.isVisible}
+        onClose={hideToast}
+      />
+
       {/* Header Section */}
-      <div className="bg-gradient-to-r from-blue-900 to-blue-800 text-white">
-        <div className="max-w-6xl mx-auto px-6 py-16 text-center">
-          <h1 className="text-4xl md:text-5xl font-serif mb-4">Contact Us</h1>
-          <p className="text-xl text-blue-200 max-w-2xl mx-auto">
+      <div className="bg-white shadow-sm text-white">
+        <div className="max-w-6xl mx-auto px-6 py-12 text-center">
+          <h1 className="text-4xl md:text-5xl font-serif text-blue-900 mb-4">Contact Us</h1>
+          <p className="text-lg text-blue-700 font-medium max-w-2xl mx-auto">
             We'd love to hear from you. Get in touch with us for any questions,
             prayer requests, or to learn more about our church community.
           </p>
@@ -69,7 +221,7 @@ export default function ContactUs() {
                     htmlFor="name"
                     className="block text-sm font-medium text-gray-700 mb-2"
                   >
-                    Full Name *
+                    Full Name <span className="text-red-600">*</span>
                   </label>
                   <div className="relative">
                     <User className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
@@ -80,7 +232,9 @@ export default function ContactUs() {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                      className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors text-black ${
+                        errors.name ? "border-red-500" : "border-gray-300"
+                      }`}
                       placeholder="Enter your full name"
                     />
                   </div>
@@ -91,7 +245,7 @@ export default function ContactUs() {
                     htmlFor="email"
                     className="block text-sm font-medium text-gray-700 mb-2"
                   >
-                    Email Address *
+                    Email Address
                   </label>
                   <div className="relative">
                     <Mail className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
@@ -102,7 +256,9 @@ export default function ContactUs() {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                      className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors text-black ${
+                        errors.email ? "border-red-500" : "border-gray-300"
+                      }`}
                       placeholder="Enter your email"
                     />
                   </div>
@@ -115,7 +271,7 @@ export default function ContactUs() {
                     htmlFor="phone"
                     className="block text-sm font-medium text-gray-700 mb-2"
                   >
-                    Phone Number
+                    Phone Number <span className="text-red-600">*</span>
                   </label>
                   <div className="relative">
                     <Phone className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
@@ -125,7 +281,7 @@ export default function ContactUs() {
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors text-black"
                       placeholder="Enter your phone number"
                     />
                   </div>
@@ -136,7 +292,7 @@ export default function ContactUs() {
                     htmlFor="subject"
                     className="block text-sm font-medium text-gray-700 mb-2"
                   >
-                    Subject *
+                    Subject <span className="text-red-600">*</span>
                   </label>
                   <select
                     id="subject"
@@ -144,16 +300,20 @@ export default function ContactUs() {
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors text-black ${
+                      errors.subject ? "border-red-500" : "border-gray-300"
+                    }`}
                   >
                     <option value="">Select a subject</option>
-                    <option value="general">General Inquiry</option>
-                    <option value="prayer">Prayer Request</option>
-                    <option value="visit">Planning to Visit</option>
-                    <option value="baptism">Baptism Information</option>
-                    <option value="membership">Church Membership</option>
-                    <option value="events">Church Events</option>
-                    <option value="other">Other</option>
+                    <option value="General Inquiry">General Inquiry</option>
+                    <option value="Prayer Request">Prayer Request</option>
+                    <option value="Planning to Visit">Planning to Visit</option>
+                    <option value="Baptism Information">
+                      Baptism Information
+                    </option>
+                    <option value="Church Membership">Church Membership</option>
+                    <option value="Church Events">Church Events</option>
+                    <option value="Other">Other</option>
                   </select>
                 </div>
               </div>
@@ -163,7 +323,7 @@ export default function ContactUs() {
                   htmlFor="message"
                   className="block text-sm font-medium text-gray-700 mb-2"
                 >
-                  Message *
+                  Message <span className="text-red-600">*</span>
                 </label>
                 <textarea
                   id="message"
@@ -172,17 +332,29 @@ export default function ContactUs() {
                   onChange={handleChange}
                   required
                   rows={6}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors resize-none"
+                  className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors resize-none text-black ${
+                    errors.message ? "border-red-500" : "border-gray-300"
+                  }`}
                   placeholder="Share your message, prayer request, or any questions you have..."
                 />
               </div>
 
               <button
-                onClick={handleSubmit}
-                className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-3 px-6 rounded-lg font-medium hover:from-blue-700 hover:to-blue-800 transition-all transform hover:scale-105 flex items-center justify-center"
+                onClick={handleSubmitEmailJS}
+                disabled={isSubmitting}
+                className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-3 px-6 rounded-lg font-medium hover:from-blue-700 hover:to-blue-800 transition-all transform hover:scale-105 flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
               >
-                <Send className="w-5 h-5 mr-2" />
-                Send Message
+                {isSubmitting ? (
+                  <>
+                    <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
+                    Sending...
+                  </>
+                ) : (
+                  <>
+                    <Send className="w-5 h-5 mr-2" />
+                    Send Message
+                  </>
+                )}
               </button>
             </div>
           </div>
@@ -243,20 +415,21 @@ export default function ContactUs() {
                 </div>
                 <div className="flex justify-between items-center py-2 border-b border-gray-100">
                   <span className="font-medium text-gray-700">
-                    Sunday Malyalam Service
+                    Sunday Malayalam Service
                   </span>
                   <span className="text-gray-600">10:00 AM - 12:30 PM</span>
                 </div>
-                {/* <div className="flex justify-between items-center py-2 border-b border-gray-100">
-                  <span className="font-medium text-gray-700">Wednesday Prayer Meeting</span>
-                  <span className="text-gray-600">7:00 PM - 8:30 PM</span>
-                </div>
-               */}
                 <div className="flex justify-between items-center py-2 border-b border-gray-100">
                   <span className="font-medium text-gray-700">
                     Sunday School
                   </span>
                   <span className="text-gray-600">9:00 AM - 10:00 AM</span>
+                </div>
+                <div className="flex justify-between items-center py-2 border-b border-gray-100">
+                  <span className="font-medium text-gray-700">
+                    Friday Fasting Prayer
+                  </span>
+                  <span className="text-gray-600">11:00 AM - 12:30 PM</span>
                 </div>
                 <div className="flex justify-between items-center py-2 border-b border-gray-100">
                   <span className="font-medium text-gray-700">
@@ -267,7 +440,7 @@ export default function ContactUs() {
               </div>
             </div>
 
-            {/* Map Placeholder */}
+            {/* Map */}
             <div className="bg-white rounded-xl shadow-lg p-8">
               <h3 className="text-xl font-serif text-gray-800 mb-4">
                 Find Us on Map
@@ -314,6 +487,23 @@ export default function ContactUs() {
           </div>
         </div>
       </div>
+
+      <style jsx>{`
+        @keyframes slide-in {
+          from {
+            transform: translateX(100%);
+            opacity: 0;
+          }
+          to {
+            transform: translateX(0);
+            opacity: 1;
+          }
+        }
+        
+        .animate-slide-in {
+          animation: slide-in 0.3s ease-out;
+        }
+      `}</style>
     </div>
   );
 }
