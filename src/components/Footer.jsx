@@ -1,5 +1,5 @@
 import React from "react";
-import { Facebook, Twitter, Instagram, Youtube, MapPin, Phone, Mail } from "lucide-react";
+import { Facebook, Instagram, Youtube, MapPin, Phone, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
@@ -12,22 +12,18 @@ const Footer = () => {
   ];
 
   const serviceTimes = [
-    "Sunday English Service: 8:30 AM",
+    "Sunday English Service: 09:00 AM",
     "Sunday Malayalam Service: 10:00 AM",
-    // "Bible Study: Wed 7:00 PM",
     "Fasting Prayer: Fri 11:00 AM",
-    // "Youth Service: Sat 6:00 PM",
   ];
 
   const socialLinks = [
     { icon: Facebook, href: "https://www.facebook.com/churchofgodkoramangala" },
-    // { icon: Twitter, href: '#' },
-    {
-      icon: Instagram,
-      href: "https://www.instagram.com/cgikoramangala/?hl=en",
-    },
+    { icon: Instagram, href: "https://www.instagram.com/cgikoramangala/?hl=en" },
     { icon: Youtube, href: "https://www.youtube.com/@cogkoramangala" },
   ];
+
+  const newTab = { target: "_blank", rel: "noopener noreferrer" };
 
   return (
     <footer className="bg-slate-800 text-white py-12">
@@ -36,7 +32,7 @@ const Footer = () => {
           {/* Church Info */}
           <div>
             <div className="flex items-center space-x-3 mb-4 w-52">
-              <Link to="/home" className="">
+              <Link to="/home">
                 <img src="/images/church-logo.png" alt="logo" />
               </Link>
             </div>
@@ -54,6 +50,7 @@ const Footer = () => {
                 <li key={index}>
                   <a
                     href="#"
+                    {...newTab}
                     className="text-slate-400 hover:text-white transition-colors"
                   >
                     {link}
@@ -80,16 +77,14 @@ const Footer = () => {
               <div className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 mt-0.5 text-slate-500 flex-shrink-0" />
                 <p>
-                  # 418/8, 80 Feet Road, 6th Block, <br /> (Near BMTC Bus Depot) <br />{" "}
+                  # 418/8, 80 Feet Road, 6th Block, <br /> (Near BMTC Bus Depot) <br />
                   Koramangala, Bangalore, India, <br /> Pin 560 095.
                 </p>
               </div>
-
               <div className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-slate-500 flex-shrink-0" />
-                <p>+91 94470 93119</p>
+                 <p>+91 94470 93119</p>
               </div>
-
               <div className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-slate-500 flex-shrink-0" />
                 <p>info@cogkoramangala.org</p>
@@ -100,6 +95,7 @@ const Footer = () => {
                 <a
                   key={index}
                   href={social.href}
+                  {...newTab}
                   className="text-slate-400 hover:text-white transition-colors"
                 >
                   <social.icon className="w-5 h-5" />
@@ -115,17 +111,18 @@ const Footer = () => {
             reserved. | Designed and Developed by{" "}
             <a
               href="https://db-media.vercel.app/"
+              {...newTab}
               className="text-cyan-400 underline hover:text-white transition-colors ml-1"
             >
               db media
             </a>
-            <a href="#" className="hover:text-white transition-colors ml-1">
+            {/* <a href="#" {...newTab} className="hover:text-white transition-colors ml-1">
               | Privacy Policy
             </a>{" "}
             |
-            <a href="#" className="hover:text-white transition-colors ml-1">
+            <a href="#" {...newTab} className="hover:text-white transition-colors ml-1">
               Terms of Service
-            </a>
+            </a> */}
           </p>
         </div>
       </div>

@@ -411,7 +411,7 @@ export default function ContactUs() {
                   <span className="font-medium text-gray-700">
                     Sunday English Service
                   </span>
-                  <span className="text-gray-600">8:30 AM - 10:00 AM</span>
+                  <span className="text-gray-600">9:00 AM - 10:00 AM</span>
                 </div>
                 <div className="flex justify-between items-center py-2 border-b border-gray-100">
                   <span className="font-medium text-gray-700">
@@ -433,7 +433,7 @@ export default function ContactUs() {
                 </div>
                 <div className="flex justify-between items-center py-2 border-b border-gray-100">
                   <span className="font-medium text-gray-700">
-                    Friday Youth Prayer Cell
+                    Saturday Youth Prayer Cell
                   </span>
                   <span className="text-gray-600">7:00 PM - 8:00 PM</span>
                 </div>

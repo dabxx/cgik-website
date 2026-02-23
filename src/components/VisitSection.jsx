@@ -6,7 +6,7 @@ const VisitSection = () => {
     { service: "English Service", time: "Sunday 9:00 AM" },
     { service: "Malyalam Service", time: "Sunday 10:00 AM" },
     { service: "Sunday School", time: "Sunday 9:00 AM" },
-    { service: "Youth Prayer Cell", time: "Friday 7:00 PM" },
+    { service: "Youth Prayer Cell", time: "Saturday 7:00 PM" },
   ];
 
   const contactInfo = [

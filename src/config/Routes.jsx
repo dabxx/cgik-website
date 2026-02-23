@@ -12,6 +12,7 @@ const Contact = React.lazy(() => import('../pages/Contact'));
 // const Events = React.lazy(() => import('../pages/Events'));
 const Ministries = React.lazy(() => import('../pages/OurMinistries'));
 const History = React.lazy(() => import('../pages/History'));
+const MembershipForm = React.lazy(() => import('../pages/MembershipForm'));
 // const Gallery = React.lazy(() => import('../pages/Gallery'));
 
 export const routes = [
@@ -22,7 +23,7 @@ export const routes = [
     showInNav: true,
     lazy: false,
     meta: {
-      title: 'Home - Church Name',
+      title: 'Home - CGI Koramangala',
       description: 'Welcome to our church community'
     }
   },
@@ -33,7 +34,7 @@ export const routes = [
     showInNav: true,
     lazy: true,
     meta: {
-      title: 'About Us - Church Name',
+      title: 'About Us - CGI Koramangala',
       description: 'Learn about our church history and mission'
     }
   },
@@ -44,7 +45,7 @@ export const routes = [
     showInNav: true,
     lazy: false,
     meta: {
-      title: 'Services & Sermons - Church Name',
+      title: 'Services & Sermons - CGI Koramangala',
       description: 'Join us for worship services and sermons'
     }
   },
@@ -55,7 +56,7 @@ export const routes = [
 //     showInNav: true,
 //     lazy: true,
 //     meta: {
-//       title: 'Sermons - Church Name',
+//       title: 'Sermons - CGI Koramangala',
 //       description: 'Listen to our latest sermons and teachings'
 //     }
 //   },
@@ -66,7 +67,7 @@ export const routes = [
     showInNav: true,
     lazy: true,
     meta: {
-      title: 'Ministries - Church Name',
+      title: 'Ministries - CGI Koramangala',
       description: 'Discover our various ministry programs'
     }
   },
@@ -77,7 +78,7 @@ export const routes = [
     showInNav: true,
     lazy: true,
     meta: {
-      title: 'History - Church Name',
+      title: 'History - CGI Koramangala',
       description: 'Discover our various ministry programs'
     }
   },
@@ -88,7 +89,7 @@ export const routes = [
 //     showInNav: true,
 //     lazy: true,
 //     meta: {
-//       title: 'Events - Church Name',
+//       title: 'Events - CGI Koramangala',
 //       description: 'Stay updated with our upcoming events'
 //     }
 //   },
@@ -99,7 +100,7 @@ export const routes = [
 //     showInNav: true,
 //     lazy: true,
 //     meta: {
-//       title: 'Gallery - Church Name',
+//       title: 'Gallery - CGI Koramangala',
 //       description: 'View photos from our church activities'
 //     }
 //   },
@@ -110,7 +111,18 @@ export const routes = [
     showInNav: true,
     lazy: true,
     meta: {
-      title: 'Contact Us - Church Name',
+      title: 'Contact Us - CGI Koramangala',
+      description: 'Get in touch with our church community'
+    }
+  },
+  {
+    path: '/membership-form',
+    component: MembershipForm,
+    name: 'MembershipForm',
+    showInNav: false,
+    lazy: true,
+    meta: {
+      title: 'Membership Form - CGI Koramangala',
       description: 'Get in touch with our church community'
     }
   }

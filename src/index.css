@@ -19,3 +19,18 @@ body {
 code {
   font-family: serif;
 }
+
+input,
+select,
+textarea {
+  background-color: white !important;
+  color: black !important;
+}
+
+input[type="checkbox"] {
+  appearance: auto !important;
+  -webkit-appearance: checkbox !important;
+  background-color: transparent !important;
+  filter: none !important;
+  opacity: 1 !important;
+}
