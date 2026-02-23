@@ -34,3 +34,14 @@ input[type="checkbox"] {
   filter: none !important;
   opacity: 1 !important;
 }
+
+input[type="date"],
+input[type="date"]::-webkit-calendar-picker-indicator {
+  color-scheme: light !important;
+  filter: none !important;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 1 !important;
+  cursor: pointer;
+}
