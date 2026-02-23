@@ -104,7 +104,7 @@ function PrintView({ form }) {
           }}
         >
           <img
-            src="/images/logo.jpeg"
+            src="/images/logo.png"
             alt="CGI Logo"
             style={{ width: 60, height: 60, objectFit: "contain" }}
           />
@@ -756,12 +756,12 @@ ${fam.length ? fam.map((r) => `${r.name} | DOB: ${r.dob} | ${r.pob} | ${r.sex} |
       </div>
 
       {/* Form */}
-      <div className="max-w-3xl mx-auto bg-white shadow-md mb-10">
+      <div className="max-w-3xl mx-auto bg-[#ebe6cc] shadow-md mb-10">
         {/* Form Header */}
         <div className="text-center py-4 px-4 border-b-2 border-gray-800">
           <div className="flex items-center justify-center gap-3">
             <img
-              src="/images/logo.jpeg"
+              src="/images/logo.png"
               alt="CGI Logo"
               className="w-12 h-12 sm:w-16 sm:h-16 object-contain flex-shrink-0"
             />
@@ -1184,7 +1184,7 @@ ${fam.length ? fam.map((r) => `${r.name} | DOB: ${r.dob} | ${r.pob} | ${r.sex} |
                 </tr>
               </thead>
               <tbody>
-                <tr>
+                <tr className="bg-gray-100">
                   {Array(5)
                     .fill(null)
                     .map((_, i) => (
