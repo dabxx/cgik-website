@@ -34,59 +34,15 @@ const Services = () => {
 
           {/* Services Grid */}
           <div className="grid md:grid-cols-3 gap-8">
-            {/* Sunday Services */}
-            <div className="bg-white p-8 rounded-lg shadow-md">
-              <h3 className="text-xl font-bold text-gray-800 mb-6 text-center">
-                SUNDAY
-              </h3>
-
-              <div className="space-y-6">
-                <div className="text-center">
-                  <h4 className="font-semibold text-gray-700 mb-1">
-                    ENGLISH WORSHIP
-                  </h4>
-                  <p className="text-gray-600">08:30 AM - 09:45 AM</p>
-                </div>
-
-                <div className="text-center">
-                  <h4 className="font-semibold text-gray-700 mb-1">
-                    MALAYALAM WORSHIP
-                  </h4>
-                  <p className="text-gray-600">10:00 AM - 12:30 PM</p>
-                </div>
-
-                <div className="text-center">
-                  <h4 className="font-semibold text-gray-700 mb-1">
-                    SUNDAY SCHOOL
-                  </h4>
-                  <p className="text-gray-600">9:00 AM - 10:00 AM</p>
-                </div>
-
-                <div className="text-center">
-                  <h4 className="font-semibold text-gray-700 mb-1">
-                    LADIES MINISTRY
-                  </h4>
-                  <p className="text-gray-600">7:00 PM - 8:00 PM</p>
-                </div>
-
-                <div className="text-center">
-                  <h4 className="font-semibold text-gray-700 mb-1">
-                    YOUTH MEETING (YPE)
-                  </h4>
-                  <p className="text-gray-600">3rd Sunday 12:00 PM - 1:00 PM</p>
-                </div>
-              </div>
-            </div>
-
             {/* Friday Services */}
             <div className="bg-white p-8 rounded-lg shadow-md">
               <h3 className="text-xl font-bold text-gray-800 mb-6 text-center">
                 FRIDAY
               </h3>
 
-              <div className="space-y-6">
+              <div className="space-y-2">
                 <div className="text-center">
-                  <h4 className="font-semibold text-gray-700 mb-1">
+                  <h4 className="font-semibold text-gray-700">
                     FASTING PRAYER
                   </h4>
                   <p className="text-gray-600">10:30 AM - 1:00 PM</p>
@@ -100,19 +56,63 @@ const Services = () => {
                 SATURDAY
               </h3>
 
-              <div className="space-y-6">
+              <div className="space-y-2">
                 <div className="text-center">
-                  <h4 className="font-semibold text-gray-700 mb-1">
+                  <h4 className="font-semibold text-gray-700">
                     YOUTH PRAYER CELL
                   </h4>
-                  <p className="text-gray-600">8:00 AM - 9:30 AM</p>
+                  <p className="text-gray-600">7:00 PM - 9:00 PM</p>
                 </div>
 
                 <div className="text-center">
-                  <h4 className="font-semibold text-gray-700 mb-1">
+                  <h4 className="font-semibold text-gray-700">
                     PRAYER & BIBLE STUDY
                   </h4>
                   <p className="text-gray-600">7:30 PM - 9:00 PM</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Sunday Services */}
+            <div className="bg-white p-8 rounded-lg shadow-md">
+              <h3 className="text-xl font-bold text-gray-800 mb-6 text-center">
+                SUNDAY
+              </h3>
+
+              <div className="space-y-2">
+                <div className="text-center">
+                  <h4 className="font-semibold text-gray-700">
+                    ENGLISH WORSHIP
+                  </h4>
+                  <p className="text-gray-600">09:00 AM - 10:00 AM</p>
+                </div>
+
+                <div className="text-center">
+                  <h4 className="font-semibold text-gray-700">
+                    MALAYALAM WORSHIP
+                  </h4>
+                  <p className="text-gray-600">10:00 AM - 12:30 PM</p>
+                </div>
+
+                <div className="text-center">
+                  <h4 className="font-semibold text-gray-700">
+                    SUNDAY SCHOOL
+                  </h4>
+                  <p className="text-gray-600">09:00 AM - 10:00 AM</p>
+                </div>
+
+                {/* <div className="text-center">
+                  <h4 className="font-semibold text-gray-700">
+                    LADIES MINISTRY
+                  </h4>
+                  <p className="text-gray-600">7:00 PM - 8:00 PM</p>
+                </div> */}
+
+                <div className="text-center">
+                  <h4 className="font-semibold text-gray-700">
+                    YOUTH MEETING (YPE)
+                  </h4>
+                  <p className="text-gray-600">3rd Sunday 12:00 PM - 1:00 PM</p>
                 </div>
               </div>
             </div>
