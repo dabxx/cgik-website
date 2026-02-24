@@ -22,6 +22,9 @@ const initialState = {
   fullName: "",
   fatherName: "",
   motherName: "",
+  gender: "",           
+  contactNumber: "",    
+  signature: "",
   presentAddress: "",
   permanentAddress: "",
   dob: "",
@@ -189,6 +192,10 @@ function PrintView({ form }) {
       <div style={{ display: "flex", gap: 16 }}>
         <Row label="Name of father" value={v(form.fatherName)} />
         <Row label="Name of mother" value={v(form.motherName)} />
+      </div>
+      <div style={{ display: "flex", gap: 16 }}>
+        <Row label="Gender" value={v(form.gender)} />
+        <Row label="Contact Number" value={v(form.contactNumber)} />
       </div>
       <Row label="Present address" value={v(form.presentAddress)} />
       <Row label="Permanent address" value={v(form.permanentAddress)} />
@@ -420,15 +427,23 @@ function PrintView({ form }) {
         the information given above is true to the best of my knowledge and
         belief.
       </p>
-      <div
-        style={{
-          textAlign: "right",
-          fontSize: 10,
-          fontStyle: "italic",
-          marginBottom: 4,
-        }}
-      >
-        Applicant Signature with date
+      <div style={{ textAlign: "right", fontSize: 10, marginBottom: 4 }}>
+        <div
+          style={{
+            minWidth: 200,
+            display: "inline-block",
+            paddingBottom: 2,
+            paddingLeft: 8,
+            fontStyle: "italic",
+            fontSize: 11,
+            textAlign: "center",
+          }}
+        >
+          {form.signature || ""}
+        </div>
+        <div style={{ fontStyle: "italic", color: "#555", marginTop: 2 }}>
+          Applicant Signature
+        </div>
       </div>
       <div
         style={{
@@ -841,6 +856,26 @@ ${fam.length ? fam.map((r) => `${r.name} | DOB: ${r.dob} | ${r.pob} | ${r.sex} |
                 />
               </Field>
             </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <Field label="Gender">
+                <select
+                  className="border border-gray-300 rounded-md px-3 py-2 text-sm w-full outline-none focus:border-blue-400 bg-white h-[38px]"
+                  value={form.gender}
+                  onChange={(e) => set("gender", e.target.value)}
+                >
+                  <option value="">-- Select --</option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                </select>
+              </Field>
+
+              <Field label="Contact Number">
+                <TextInput
+                  value={form.contactNumber}
+                  onChange={(e) => set("contactNumber", e.target.value)}
+                />
+              </Field>
+            </div>
 
             <Field label="Present Address">
               <TextInput
@@ -1056,7 +1091,7 @@ ${fam.length ? fam.map((r) => `${r.name} | DOB: ${r.dob} | ${r.pob} | ${r.sex} |
                           value={row.sex}
                           onChange={(e) => setFamily(i, "sex", e.target.value)}
                         >
-                          <option value=""></option>
+                          <option value="">-- Select --</option>
                           <option value="Male">Male</option>
                           <option value="Female">Female</option>
                         </select>
@@ -1114,10 +1149,15 @@ ${fam.length ? fam.map((r) => `${r.name} | DOB: ${r.dob} | ${r.pob} | ${r.sex} |
               to the best of my knowledge and belief.
             </p>
             <div className="mt-4 flex justify-end">
-              <div className="text-right">
-                <div className="border-t border-gray-400 w-48 mb-1"></div>
-                <p className="text-xs italic text-gray-500">
-                  Applicant Signature with date
+              <div className="text-right w-64">
+                <input
+                  className="border-b border-gray-400 w-full outline-none text-sm px-1 py-0.5 bg-transparent text-right italic"
+                  placeholder="Type your name here"
+                  value={form.signature}
+                  onChange={(e) => set("signature", e.target.value)}
+                />
+                <p className="text-xs italic text-gray-500 mt-1">
+                  Applicant Signature
                 </p>
               </div>
             </div>
