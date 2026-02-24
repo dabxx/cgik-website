@@ -5,40 +5,86 @@
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <link href="./output.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
+    <meta name="theme-color" content="#1e3a5f" />
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>Church of God Koramangala</title>
+    <!-- ── Primary SEO ─────────────────────────────────────────────────── -->
+    <title>Church of God Koramangala | Pentecostal Church in Bangalore</title>
+    <meta name="description" content="Church of God (Full Gospel) in India, Koramangala, Bangalore. Sunday English service 9:00 AM, Malayalam service 10:00 AM. A Spirit-filled community near BMTC Bus Depot, 6th Block." />
+    <meta name="keywords" content="Church of God Koramangala, Pentecostal church Bangalore, Full Gospel church Bangalore, Christian church Koramangala, CGI Koramangala, Sunday service Bangalore, church near 6th block Koramangala, Malayalam church Bangalore, Spirit filled church Bangalore" />
+    <meta name="author" content="Church of God (Full Gospel) in India, Koramangala" />
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow" />
+    <link rel="canonical" href="https://www.churchofgodbangalore.org" />
+
+    <!-- ── Open Graph (Facebook, WhatsApp, LinkedIn) ──────────────────── -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Church of God Koramangala | Pentecostal Church in Bangalore" />
+    <meta property="og:description" content="Worshiping God in Spirit and Truth. Join us at Church of God (Full Gospel), Koramangala, Bangalore. Sunday services at 8:30 AM & 10:00 AM." />
+    <meta property="og:image" content="https://www.cogkoramangala.org/images/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Church of God Koramangala - Full Gospel Church in Bangalore" />
+    <meta property="og:url" content="https://www.churchofgodbangalore.org" />
+    <meta property="og:site_name" content="Church of God Koramangala" />
+    <meta property="og:locale" content="en_IN" />
+
+    <!-- ── Twitter Card ────────────────────────────────────────────────── -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Church of God Koramangala | Pentecostal Church in Bangalore" />
+    <meta name="twitter:description" content="Worshiping God in Spirit and Truth. Join our community of faith at Church of God (Full Gospel), Koramangala, Bangalore." />
+    <meta name="twitter:image" content="%PUBLIC_URL%/images/og-image.png" />
+
+    <!-- ── Local Business Schema (Google Knowledge Panel & Maps) ─────── -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Church",
+      "name": "Church of God (Full Gospel) in India - Koramangala",
+      "alternateName": "CGI Koramangala",
+      "url": "https://www.churchofgodbangalore.org",
+      "logo": "https://www.churchofgodbangalore.org/images/logo.png",
+      "image": "https://www.churchofgodbangalore.org/images/og-image.png",
+      "description": "A Spirit-filled Pentecostal church in Koramangala, Bangalore. Sunday English service at 8:30 AM and Malayalam service at 10:00 AM.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "#418/8, 80 Feet Road, 6th Block, Near BMTC Bus Depot",
+        "addressLocality": "Koramangala",
+        "addressRegion": "Karnataka",
+        "postalCode": "560095",
+        "addressCountry": "IN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 12.9352,
+        "longitude": 77.6245
+      },
+      "telephone": "+91-9447093119",
+      "email": "cgikoramangala@gmail.com",
+      "openingHours": [
+        "Su 08:30-11:30",
+        "Fr 11:00-13:00"
+      ],
+      "sameAs": [
+        "https://www.facebook.com/churchofgodkoramangala",
+        "https://www.instagram.com/cgikoramangala",
+        "https://www.youtube.com/@cogkoramangala"
+      ]
+    }
+    </script>
+
+    <!-- ── Geo Meta ────────────────────────────────────────────────────── -->
+    <meta name="geo.region" content="IN-KA" />
+    <meta name="geo.placename" content="Koramangala, Bangalore, Karnataka, India" />
+    <meta name="geo.position" content="12.9352;77.6245" />
+    <meta name="ICBM" content="12.9352, 77.6245" />
+
+    <!-- ── Performance & Accessibility ───────────────────────────────── -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
   </body>
 </html>
