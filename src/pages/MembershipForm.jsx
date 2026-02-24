@@ -22,8 +22,8 @@ const initialState = {
   fullName: "",
   fatherName: "",
   motherName: "",
-  gender: "",           
-  contactNumber: "",    
+  gender: "",
+  contactNumber: "",
   signature: "",
   presentAddress: "",
   permanentAddress: "",
@@ -583,6 +583,7 @@ export default function MembershipForm() {
   const [form, setForm] = useState(initialState);
   const [submitting, setSubmitting] = useState(false);
   const [status, setStatus] = useState("");
+  const [declarationAccepted, setDeclarationAccepted] = useState(false);
 
   const set = (f, v) => setForm((p) => ({ ...p, [f]: v }));
   const toggleIdProof = (v) =>
@@ -632,6 +633,33 @@ export default function MembershipForm() {
       });
       return;
     }
+
+    if (!declarationAccepted) {
+      toast({
+        title: "Please accept the declaration",
+        description:
+          "You must read and accept the declaration before submitting.",
+        status: "warning",
+        duration: 5000,
+        isClosable: true,
+        position: "top-center",
+      });
+      return;
+    }
+
+    if (!form.signature.trim()) {
+      toast({
+        title: "Signature required",
+        description:
+          "Please type your name in the Applicant Signature field before submitting.",
+        status: "warning",
+        duration: 5000,
+        isClosable: true,
+        position: "top-center",
+      });
+      return;
+    }
+
     setSubmitting(true);
     setStatus("pdf");
     try {
@@ -711,6 +739,7 @@ ${fam.length ? fam.map((r) => `${r.name} | DOB: ${r.dob} | ${r.pob} | ${r.sex} |
         position: "top-center",
       });
       setForm(initialState);
+      setDeclarationAccepted(false);
       setStatus("");
     } catch (e) {
       console.error(e);
@@ -1148,6 +1177,22 @@ ${fam.length ? fam.map((r) => `${r.name} | DOB: ${r.dob} | ${r.pob} | ${r.sex} |
               independently. I certify that the information given above is true
               to the best of my knowledge and belief.
             </p>
+
+            {/* Acceptance checkbox */}
+            <label className="flex items-start gap-3 mt-4 cursor-pointer group">
+              <input
+                type="checkbox"
+                checked={declarationAccepted}
+                onChange={(e) => setDeclarationAccepted(e.target.checked)}
+                className="w-4 h-4 mt-0.5 flex-shrink-0 accent-purple-600"
+              />
+              <span
+                className={`text-xs leading-relaxed ${declarationAccepted ? "text-gray-700" : "text-gray-500"}`}
+              >
+                I Agree.
+              </span>
+            </label>
+
             <div className="mt-4 flex justify-end">
               <div className="text-right w-64">
                 <input
